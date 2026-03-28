@@ -14,6 +14,7 @@ app.use(express.json());
 // Routes
 app.use("/api/feedback", require("./routes/feedbackRoutes"));
 
+// Server
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });

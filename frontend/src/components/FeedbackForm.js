@@ -15,16 +15,30 @@ function FeedbackForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/feedback", form);
-    alert("Feedback submitted!");
+    try {
+      await axios.post("http://127.0.0.1:5000/api/feedback", form);
+      alert("Feedback submitted!");
+
+      // clear form
+      setForm({
+        studentName: "",
+        subject: "",
+        rating: "",
+        comment: "",
+      });
+
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting feedback");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="studentName" placeholder="Name" onChange={handleChange} />
-      <input name="subject" placeholder="Subject" onChange={handleChange} />
-      <input name="rating" type="number" placeholder="Rating" onChange={handleChange} />
-      <textarea name="comment" placeholder="Comment" onChange={handleChange}></textarea>
+      <input name="studentName" placeholder="Name" value={form.studentName} onChange={handleChange} />
+      <input name="subject" placeholder="Subject" value={form.subject} onChange={handleChange} />
+      <input name="rating" type="number" placeholder="Rating" value={form.rating} onChange={handleChange} />
+      <textarea name="comment" placeholder="Comment" value={form.comment} onChange={handleChange}></textarea>
       <button type="submit">Submit</button>
     </form>
   );

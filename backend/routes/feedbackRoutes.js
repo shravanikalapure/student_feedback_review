@@ -9,4 +9,4 @@ const {
 router.post("/", addFeedback);
 router.get("/", getFeedback);
 
-module.exports = router;   // 
+module.exports = router;
