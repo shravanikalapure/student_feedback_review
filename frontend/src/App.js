@@ -4,7 +4,7 @@ import FeedbackList from "./components/FeedbackList";
 
 function App() {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h1>Student Feedback System</h1>
       <FeedbackForm />
       <FeedbackList />

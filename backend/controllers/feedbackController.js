@@ -7,7 +7,6 @@ exports.addFeedback = async (req, res) => {
     await feedback.save();
     res.status(201).json(feedback);
   } catch (err) {
-    console.log(err);
     res.status(500).json({ error: err.message });
   }
 };
@@ -15,10 +14,9 @@ exports.addFeedback = async (req, res) => {
 // Get all feedback
 exports.getFeedback = async (req, res) => {
   try {
-    const data = await Feedback.find();
+    const data = await Feedback.find().sort({ date: -1 });
     res.json(data);
   } catch (err) {
-    console.log(err);
     res.status(500).json({ error: err.message });
   }
 };
