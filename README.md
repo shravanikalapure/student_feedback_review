@@ -20,7 +20,7 @@ Backend:
 - Express.js
 
 Database:
-- MongoDB (Mongoose)
+- MongoDB -Mongoose
 
 ## Project Structure
 student-feedback/
